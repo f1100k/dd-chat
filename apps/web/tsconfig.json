@@ -1,9 +1,9 @@
 {
-  "extends": "@dd-chat/tsconfig/web.json",
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": ["src", "vite.config.ts"]
+	"extends": "@dd-chat/tsconfig/web.json",
+	"compilerOptions": {
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	},
+	"include": ["src", "vite.config.ts"]
 }
