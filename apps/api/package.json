@@ -5,7 +5,8 @@
 		"dev": "tsx watch src/index.ts",
 		"build": "tsc",
 		"type-check": "tsc --noEmit",
-		"lint": "biome check . --error-on-warnings"
+		"lint": "biome check . --error-on-warnings",
+		"lint:fix": "biome check . --error-on-warnings --write"
 	},
 	"dependencies": {
 		"@hono/node-server": "^1.19.14",

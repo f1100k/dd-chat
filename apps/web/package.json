@@ -5,6 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"lint": "biome check . --error-on-warnings",
+		"lint:fix": "biome check . --error-on-warnings --write",
 		"type-check": "tsc --noEmit",
 		"build": "tsc --noEmit && vite build",
 		"dev": "vite"

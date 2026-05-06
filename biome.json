@@ -11,7 +11,12 @@
 	},
 	"formatter": {
 		"enabled": true,
-		"indentStyle": "tab"
+		"formatWithErrors": false,
+		"attributePosition": "auto",
+		"indentStyle": "tab",
+		"indentWidth": 2,
+		"lineEnding": "lf",
+		"lineWidth": 100
 	},
 	"linter": {
 		"enabled": true,
@@ -21,7 +26,13 @@
 	},
 	"javascript": {
 		"formatter": {
-			"quoteStyle": "double"
+			"arrowParentheses": "always",
+			"bracketSameLine": false,
+			"bracketSpacing": true,
+			"jsxQuoteStyle": "single",
+			"quoteProperties": "asNeeded",
+			"semicolons": "asNeeded",
+			"trailingCommas": "all"
 		}
 	},
 	"assist": {

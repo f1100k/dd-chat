@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"lint": "biome check . --error-on-warnings && turbo run lint",
+		"lint:fix": "biome check . --error-on-warnings --write && turbo run lint:fix",
 		"type-check": "turbo run type-check",
 		"build": "turbo run build",
 		"dev": "turbo run dev",
