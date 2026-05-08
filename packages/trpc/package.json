@@ -1,5 +1,5 @@
 {
-	"name": "trpc",
+	"name": "@dd-chat/trpc",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",

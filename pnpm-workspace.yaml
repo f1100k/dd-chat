@@ -2,3 +2,8 @@ packages:
   - 'apps/*'
   - 'packages/*'
   - 'tooling/*'
+
+catalog:
+  typescript: ~6.0.2
+  '@types/node': ^22
+  tsx: ^4.21.0

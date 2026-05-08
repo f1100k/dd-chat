@@ -1,5 +1,5 @@
 {
-	"name": "validators",
+	"name": "@dd-chat/validators",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
