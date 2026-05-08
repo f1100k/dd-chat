@@ -2,3 +2,10 @@ packages:
   - 'apps/*'
   - 'packages/*'
   - 'tooling/*'
+  - 'tests'
+
+catalog:
+  typescript: ~6.0.2
+  '@types/node': ^22
+  tsx: ^4.21.0
+  dotenv: ^17.4.2

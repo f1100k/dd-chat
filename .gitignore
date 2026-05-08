@@ -58,3 +58,8 @@ postgres-data/
 *.pid
 *.seed
 *.pid.lock
+
+.env
+.env.local
+.env.*.local
+!.env.example

@@ -1,8 +1,9 @@
 {
 	"name": "@dd-chat/api",
+	"private": true,
 	"type": "module",
 	"scripts": {
-		"dev": "tsx watch src/index.ts",
+		"dev": "tsx watch --env-file=../../.env src/index.ts",
 		"build": "tsc",
 		"type-check": "tsc --noEmit",
 		"lint": "biome check . --error-on-warnings",
@@ -13,9 +14,9 @@
 		"hono": "^4.12.17"
 	},
 	"devDependencies": {
-		"@types/node": "^20.11.17",
-		"tsx": "^4.7.1",
-		"typescript": "^5.8.3",
+		"@types/node": "catalog:",
+		"tsx": "catalog:",
+		"typescript": "catalog:",
 		"@dd-chat/tsconfig": "workspace:*"
 	}
 }

@@ -1,0 +1,7 @@
+{
+	"extends": "@dd-chat/tsconfig/server.json",
+	"compilerOptions": {
+		"types": ["node", "vitest/globals"]
+	},
+	"include": ["**/*.ts"]
+}
