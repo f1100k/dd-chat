@@ -22,9 +22,8 @@ coverage/
 .env.*.local
 !.env.example
 
-# Prisma
-# (gerado pelo `prisma generate`, mas geralmente vale committar — decisão sua)
-# packages/db/src/generated/
+# Prisma — regenerado a cada `pnpm install` via postinstall
+packages/db/prisma/generated/
 
 # Logs
 *.log

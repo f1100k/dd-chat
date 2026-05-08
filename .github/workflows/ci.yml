@@ -15,6 +15,8 @@ jobs:
   validate:
     name: Lint, type-check & build
     runs-on: ubuntu-latest
+    env:
+      TURBO_CACHE_DIR: .turbo
 
     steps:
       - name: Checkout
@@ -29,8 +31,17 @@ jobs:
           node-version: 22
           cache: pnpm
 
+      - name: Cache turbo
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: turbo-${{ runner.os }}-${{ github.ref_name }}-${{ github.sha }}
+          restore-keys: |
+            turbo-${{ runner.os }}-${{ github.ref_name }}-
+            turbo-${{ runner.os }}-main-
+
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --prefer-offline
 
       - name: Lint
         run: pnpm lint

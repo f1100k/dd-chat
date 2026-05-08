@@ -14,7 +14,8 @@
 			"!**/.cache",
 			"!**/coverage",
 			"!**/.next",
-			"!**/.vitest-cache"
+			"!**/.vitest-cache",
+			"!**/prisma/generated"
 		]
 	},
 	"formatter": {
