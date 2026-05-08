@@ -18,6 +18,9 @@ catalogs:
     typescript:
       specifier: ~6.0.2
       version: 6.0.3
+    zod:
+      specifier: ^4.4.3
+      version: 4.4.3
 
 importers:
 
@@ -44,6 +47,9 @@ importers:
       hono:
         specifier: ^4.12.17
         version: 4.12.18
+      zod:
+        specifier: 'catalog:'
+        version: 4.4.3
     devDependencies:
       '@dd-chat/tsconfig':
         specifier: workspace:*
@@ -138,7 +144,7 @@ importers:
   packages/validators:
     dependencies:
       zod:
-        specifier: ^4.4.3
+        specifier: 'catalog:'
         version: 4.4.3
     devDependencies:
       '@dd-chat/tsconfig':
