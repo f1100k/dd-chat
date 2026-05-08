@@ -3,9 +3,11 @@
 	"private": true,
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts"
+	},
 	"scripts": {
-		"build": "tsc",
 		"type-check": "tsc --noEmit",
 		"lint": "biome check . --error-on-warnings",
 		"lint:fix": "biome check . --error-on-warnings --write",
@@ -13,6 +15,7 @@
 		"db:migrate": "prisma migrate dev",
 		"db:migrate:deploy": "prisma migrate deploy",
 		"db:studio": "prisma studio",
+		"db:reset": "prisma migrate reset --force",
 		"postinstall": "prisma generate"
 	},
 	"keywords": [],

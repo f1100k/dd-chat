@@ -63,3 +63,5 @@ postgres-data/
 .env.local
 .env.*.local
 !.env.example
+
+CLAUDE.md

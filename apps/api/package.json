@@ -17,6 +17,7 @@
 		"@types/node": "catalog:",
 		"tsx": "catalog:",
 		"typescript": "catalog:",
-		"@dd-chat/tsconfig": "workspace:*"
+		"@dd-chat/tsconfig": "workspace:*",
+		"@dd-chat/validators": "workspace:*"
 	}
 }
