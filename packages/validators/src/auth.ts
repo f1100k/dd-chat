@@ -7,7 +7,6 @@ const signupSchema = z.object({
 	displayName: z
 		.string()
 		.trim()
-		.toLowerCase()
 		.min(3, "Display name should have at least 3 characters")
 		.max(39, "Display name should have maximum of 39 characters"),
 	username: z
@@ -23,4 +22,9 @@ const signupSchema = z.object({
 	password: z.string().min(8).max(64),
 })
 
-export { signupSchema }
+const loginSchema = z.object({
+  identifier: z.string(),
+  password: z.string(),
+})
+
+export { signupSchema, loginSchema }

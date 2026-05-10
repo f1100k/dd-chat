@@ -1,6 +1,6 @@
 import { ContentfulStatusCode } from "hono/utils/http-status"
 
-abstract class AppError extends Error {
+export abstract class AppError extends Error {
   constructor(message: string,
     public readonly statusCode: ContentfulStatusCode,
     public readonly code: string,
@@ -14,5 +14,11 @@ abstract class AppError extends Error {
 export class AuthenticationError extends AppError {
   constructor(message: string, options?: ErrorOptions) {
     super(message, 401, "AUTHENTICATION_FAILED", options)
+  }
+}
+
+export class ConflictError extends AppError {
+  constructor(message: string, options?: ErrorOptions) {
+    super(message, 409, "CONFLICT", options)
   }
 }
