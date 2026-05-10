@@ -2,6 +2,10 @@
 	"name": "@dd-chat/api",
 	"private": true,
 	"type": "module",
+	"exports": {
+		"./app": "./src/app.ts",
+		"./auth/service": "./src/auth/service.ts"
+	},
 	"scripts": {
 		"dev": "tsx watch --env-file=../../.env src/index.ts",
 		"build": "tsc",
@@ -11,14 +15,17 @@
 	},
 	"dependencies": {
 		"@hono/node-server": "^1.19.14",
-		"zod": "catalog:",
-		"hono": "^4.12.17"
+		"hono": "^4.12.17",
+		"zod": "catalog:"
 	},
 	"devDependencies": {
-		"@types/node": "catalog:",
-		"tsx": "catalog:",
-		"typescript": "catalog:",
+		"@dd-chat/db": "workspace:*",
 		"@dd-chat/tsconfig": "workspace:*",
-		"@dd-chat/validators": "workspace:*"
+		"@dd-chat/validators": "workspace:*",
+		"@types/bcrypt": "^6.0.0",
+		"@types/node": "catalog:",
+		"bcrypt": "catalog:",
+		"tsx": "catalog:",
+		"typescript": "catalog:"
 	}
 }

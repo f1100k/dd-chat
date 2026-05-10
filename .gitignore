@@ -65,3 +65,5 @@ postgres-data/
 !.env.example
 
 CLAUDE.md
+
+progress/*
