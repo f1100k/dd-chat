@@ -8,7 +8,7 @@ import { createSession } from "./session.js"
 type SignupInput = z.infer<typeof signupSchema>
 type LoginInput = z.infer<typeof loginSchema>
 
-const publicUserSelect = {
+export const publicUserSelect = {
 	id: true,
 	email: true,
 	username: true,
@@ -16,6 +16,8 @@ const publicUserSelect = {
 	createdAt: true,
 	updatedAt: true,
 } as const
+
+export type PublicUser = Prisma.UserGetPayload<{ select: typeof publicUserSelect }>
 
 export async function signupUser(input: SignupInput) {
 	const passwordHash = await hashPassword(input.password)

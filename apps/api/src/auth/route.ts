@@ -1,9 +1,10 @@
 import { signupSchema, loginSchema } from "@dd-chat/validators"
 import { Hono } from "hono"
+import { authMiddleware, type AuthEnv } from "./middleware.js"
 import { signupUser, loginUser } from "./service.js"
 import { setSessionCookie } from "./session.js"
 
-const app = new Hono()
+const app = new Hono<AuthEnv>()
 
 app.post("/signup", async (c) => {
 	const body = await c.req.json()
@@ -20,6 +21,10 @@ app.post("/login", async (c) => {
 	setSessionCookie(c, session)
 
 	return c.json(user, 200)
+})
+
+app.get("/me", authMiddleware, (c) => {
+	return c.json(c.get("user"), 200)
 })
 
 export default app
