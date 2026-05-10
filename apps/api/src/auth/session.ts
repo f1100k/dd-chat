@@ -57,3 +57,14 @@ export function setSessionCookie(c: Context, session: SessionCookie) {
 		].join("; "),
 	)
 }
+
+export function clearSessionCookie(c: Context) {
+	c.header(
+		"Set-Cookie",
+		["session=", "Max-Age=0", "SameSite=Lax", "HttpOnly", "Path=/"].join("; "),
+	)
+}
+
+export async function revokeSession(token: string) {
+	await prisma.session.deleteMany({ where: { token } })
+}
