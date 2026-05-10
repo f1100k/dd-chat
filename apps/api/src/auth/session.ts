@@ -11,6 +11,13 @@ function generateToken(): string {
 	return crypto.randomBytes(32).toString("hex")
 }
 
+const sessionSelect = {
+	id: true,
+	token: true,
+	userId: true,
+	expiresAt: true,
+} as const
+
 export async function createSession(userId: string) {
 	return prisma.session.create({
 		data: {
@@ -18,13 +25,21 @@ export async function createSession(userId: string) {
 			userId,
 			expiresAt: new Date(Date.now() + SESSION_TTL_MS),
 		},
-		select: {
-			id: true,
-			token: true,
-			userId: true,
-			expiresAt: true,
-		},
+		select: sessionSelect,
 	})
+}
+
+export async function getActiveSessionByToken(token: string) {
+	const session = await prisma.session.findUnique({
+		where: { token },
+		select: sessionSelect,
+	})
+
+	if (!session || session.expiresAt <= new Date()) {
+		return null
+	}
+
+	return session
 }
 
 export function setSessionCookie(c: Context, session: SessionCookie) {
