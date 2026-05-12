@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt"
 
-const SALT_ROUNDS = process.env.NODE_ENV === 'production' ? 14 : 1
+const SALT_ROUNDS = process.env.NODE_ENV === "production" ? 14 : 1
 
 export async function hashPassword(plain: string): Promise<string> {
 	return bcrypt.hash(plain, SALT_ROUNDS)

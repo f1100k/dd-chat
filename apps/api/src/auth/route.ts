@@ -1,26 +1,27 @@
-import { signupSchema, loginSchema } from "@dd-chat/validators"
+import { loginSchema, signupSchema } from "@dd-chat/validators"
+import { zValidator } from "@hono/zod-validator"
 import { Hono } from "hono"
 import { getCookie } from "hono/cookie"
-import { authMiddleware, type AuthEnv } from "./middleware.js"
-import { signupUser, loginUser } from "./service.js"
+import { type AuthEnv, authMiddleware } from "./middleware.js"
+import { loginUser, signupUser } from "./service.js"
 import { clearSessionCookie, revokeSession, setSessionCookie } from "./session.js"
 
 const app = new Hono<AuthEnv>()
 
-app.post("/signup", async (c) => {
-	const body = await c.req.json()
-	const parsed = signupSchema.parse(body)
-	const user = await signupUser(parsed)
+const throwOnInvalid = (result: { success: boolean; error?: unknown }) => {
+	if (!result.success) {
+		throw result.error
+	}
+}
+
+app.post("/signup", zValidator("json", signupSchema, throwOnInvalid), async (c) => {
+	const user = await signupUser(c.req.valid("json"))
 	return c.json(user, 201)
 })
 
-app.post("/login", async (c) => {
-	const body = await c.req.json()
-	const parsed = loginSchema.parse(body)
-	const { user, session } = await loginUser(parsed)
-
+app.post("/login", zValidator("json", loginSchema, throwOnInvalid), async (c) => {
+	const { user, session } = await loginUser(c.req.valid("json"))
 	setSessionCookie(c, session)
-
 	return c.json(user, 200)
 })
 

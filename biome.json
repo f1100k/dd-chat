@@ -5,10 +5,6 @@
 		"clientKind": "git",
 		"useIgnoreFile": true
 	},
-	"editor.codeActionsOnSave": {
-		"source.organizeImports.biome": "explicit",
-		"source.fixAll.biome": "explicit"
-	},
 	"files": {
 		"ignoreUnknown": false,
 		"includes": [

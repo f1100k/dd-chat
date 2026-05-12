@@ -1,5 +1,5 @@
 import { Prisma, prisma } from "@dd-chat/db"
-import { signupSchema, loginSchema } from "@dd-chat/validators"
+import type { loginSchema, signupSchema } from "@dd-chat/validators"
 import type { z } from "zod"
 import { AuthenticationError, ConflictError } from "../errors.js"
 import { hashPassword, verifyPassword } from "./password.js"

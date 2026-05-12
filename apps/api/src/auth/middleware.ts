@@ -1,8 +1,8 @@
 import { prisma } from "@dd-chat/db"
-import type { MiddlewareHandler } from "hono"
 import { getCookie } from "hono/cookie"
+import { createMiddleware } from "hono/factory"
 import { AuthenticationError } from "../errors.js"
-import { publicUserSelect, type PublicUser } from "./service.js"
+import { type PublicUser, publicUserSelect } from "./service.js"
 import { getActiveSessionByToken } from "./session.js"
 
 type ActiveSession = NonNullable<Awaited<ReturnType<typeof getActiveSessionByToken>>>
@@ -14,7 +14,7 @@ export type AuthEnv = {
 	}
 }
 
-export const authMiddleware: MiddlewareHandler<AuthEnv> = async (c, next) => {
+export const authMiddleware = createMiddleware<AuthEnv>(async (c, next) => {
 	const token = getCookie(c, "session")
 
 	if (!token) {
@@ -40,4 +40,4 @@ export const authMiddleware: MiddlewareHandler<AuthEnv> = async (c, next) => {
 	c.set("session", session)
 
 	await next()
-}
+})
