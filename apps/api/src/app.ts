@@ -1,6 +1,6 @@
-import { ZodError } from "zod"
 import { Hono } from "hono"
 import { HTTPException } from "hono/http-exception"
+import { ZodError } from "zod"
 import auth from "./auth/route.js"
 import { AppError } from "./errors.js"
 
@@ -11,9 +11,9 @@ app.onError((err, c) => {
 		return c.json({ error: err.message, issues: err.issues }, 400)
 	}
 
-  if (err instanceof AppError) {
-    return c.json({ error: err.message, code: err.code }, err.statusCode)
-  }
+	if (err instanceof AppError) {
+		return c.json({ error: err.message, code: err.code }, err.statusCode)
+	}
 
 	if (err instanceof HTTPException) {
 		return err.getResponse()

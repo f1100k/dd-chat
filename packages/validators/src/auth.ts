@@ -23,8 +23,8 @@ const signupSchema = z.object({
 })
 
 const loginSchema = z.object({
-  identifier: z.string(),
-  password: z.string(),
+	identifier: z.string(),
+	password: z.string(),
 })
 
-export { signupSchema, loginSchema }
+export { loginSchema, signupSchema }

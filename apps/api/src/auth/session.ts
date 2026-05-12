@@ -1,11 +1,14 @@
-import { prisma } from "@dd-chat/db"
 import crypto from "node:crypto"
+import { prisma } from "@dd-chat/db"
 import type { Context } from "hono"
+import { deleteCookie, setCookie } from "hono/cookie"
 
 type SessionCookie = { token: string; expiresAt: Date }
 
 const SESSION_TTL_DAYS = 7
 const SESSION_TTL_MS = SESSION_TTL_DAYS * 24 * 60 * 60 * 1000
+
+const COOKIE_NAME = "session"
 
 function generateToken(): string {
 	return crypto.randomBytes(32).toString("hex")
@@ -43,26 +46,23 @@ export async function getActiveSessionByToken(token: string) {
 }
 
 export function setSessionCookie(c: Context, session: SessionCookie) {
-	const maxAgeSeconds = Math.floor((session.expiresAt.getTime() - Date.now()) / 1000)
+	const maxAge = Math.floor((session.expiresAt.getTime() - Date.now()) / 1000)
 
-	c.header(
-		"Set-Cookie",
-		[
-			`session=${session.token}`,
-			`Max-Age=${maxAgeSeconds}`,
-			"SameSite=Lax",
-			"HttpOnly",
-			"Path=/",
-			// 'Secure' — só HTTPS, ligar em produção
-		].join("; "),
-	)
+	setCookie(c, COOKIE_NAME, session.token, {
+		maxAge,
+		httpOnly: true,
+		sameSite: "Lax",
+		path: "/",
+		// secure: true — habilitar em produção (HTTPS only)
+	})
 }
 
 export function clearSessionCookie(c: Context) {
-	c.header(
-		"Set-Cookie",
-		["session=", "Max-Age=0", "SameSite=Lax", "HttpOnly", "Path=/"].join("; "),
-	)
+	deleteCookie(c, COOKIE_NAME, {
+		path: "/",
+		sameSite: "Lax",
+		httpOnly: true,
+	})
 }
 
 export async function revokeSession(token: string) {
