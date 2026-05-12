@@ -23,3 +23,9 @@ export class ConflictError extends AppError {
 		super(message, 409, "CONFLICT", options)
 	}
 }
+
+export class BadRequestError extends AppError {
+	constructor(message: string, options?: ErrorOptions) {
+		super(message, 400, "BAD_REQUEST", options)
+	}
+}
