@@ -11,16 +11,30 @@
 		"dev": "vite"
 	},
 	"dependencies": {
+		"@dd-chat/validators": "workspace:*",
+		"@hookform/resolvers": "^5.2.2",
+		"@tanstack/react-query": "^5.100.10",
+		"@tanstack/react-router": "^1.169.2",
+		"class-variance-authority": "^0.7.1",
+		"clsx": "^2.1.1",
+		"lucide-react": "^0.553.0",
 		"react": "^19.2.5",
-		"react-dom": "^19.2.5"
+		"react-dom": "^19.2.5",
+		"react-hook-form": "^7.66.4",
+		"tailwind-merge": "^3.4.0",
+		"zod": "catalog:"
 	},
 	"devDependencies": {
+		"@dd-chat/tsconfig": "workspace:*",
+		"@tailwindcss/vite": "^4.3.0",
+		"@tanstack/react-router-devtools": "^1.166.13",
+		"@tanstack/router-plugin": "^1.167.35",
 		"@types/node": "catalog:",
 		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",
 		"@vitejs/plugin-react": "^6.0.1",
+		"tailwindcss": "^4.3.0",
 		"typescript": "catalog:",
-		"vite": "^8.0.10",
-		"@dd-chat/tsconfig": "workspace:*"
+		"vite": "^8.0.10"
 	}
 }

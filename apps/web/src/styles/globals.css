@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens ported from note-ai/project/tokens.css.
+ * Dark-only palette in OKLCH. Exposed both as CSS custom properties
+ * (for direct use) and as Tailwind v4 theme tokens (for utility classes).
+ */
+@theme {
+  --color-bg: oklch(0.165 0.005 250);
+  --color-bg-elev: oklch(0.205 0.006 250);
+  --color-surface: oklch(0.225 0.007 250);
+  --color-surface-2: oklch(0.255 0.008 250);
+  --color-border: oklch(0.295 0.009 250);
+  --color-border-soft: oklch(0.245 0.008 250);
+
+  --color-fg: oklch(0.96 0.004 250);
+  --color-fg-2: oklch(0.82 0.006 250);
+  --color-fg-muted: oklch(0.62 0.008 250);
+  --color-fg-faint: oklch(0.45 0.008 250);
+
+  --color-accent: oklch(0.78 0.13 78);
+  --color-accent-soft: oklch(0.78 0.13 78 / 0.14);
+  --color-accent-fg: oklch(0.18 0.02 78);
+
+  --color-danger: oklch(0.7 0.16 25);
+  --color-danger-soft: oklch(0.7 0.16 25 / 0.14);
+  --color-success: oklch(0.78 0.12 155);
+
+  --color-chip-bg: oklch(0.78 0.13 78 / 0.12);
+  --color-chip-border: oklch(0.78 0.13 78 / 0.32);
+  --color-chip-fg: oklch(0.86 0.09 78);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  --shadow-1: 0 1px 0 0 oklch(1 0 0 / 0.03) inset, 0 1px 2px 0 oklch(0 0 0 / 0.4);
+  --shadow-2: 0 8px 24px -8px oklch(0 0 0 / 0.5), 0 2px 6px -2px oklch(0 0 0 / 0.4);
+  --shadow-pop:
+    0 16px 40px -12px oklch(0 0 0 / 0.6), 0 4px 12px -4px oklch(0 0 0 / 0.4);
+
+  --font-sans:
+    'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+html,
+body,
+#root {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+body {
+	background: var(--color-bg);
+	color: var(--color-fg);
+	font-family: var(--font-sans);
+	font-feature-settings: "ss01", "cv11";
+	-webkit-font-smoothing: antialiased;
+	letter-spacing: -0.005em;
+}
+
+.kbd {
+	font-family: var(--font-mono);
+	font-size: 10.5px;
+	padding: 1px 5px;
+	border: 1px solid var(--color-border);
+	border-bottom-width: 2px;
+	border-radius: 4px;
+	color: var(--color-fg-muted);
+	background: var(--color-bg-elev);
+}

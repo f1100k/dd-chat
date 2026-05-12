@@ -14,7 +14,9 @@
 			"!**/.cache",
 			"!**/coverage",
 			"!**/.next",
-			"!**/.vitest-cache"
+			"!**/.vitest-cache",
+			"!**/routeTree.gen.ts",
+			"!apps/web/src/styles/globals.css"
 		]
 	},
 	"formatter": {
