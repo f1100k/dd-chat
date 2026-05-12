@@ -6,6 +6,7 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 
 import { AuthCard, AuthShell } from "@/components/auth-shell"
+import { AuthDivider, GoogleButton } from "@/components/google-button"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -161,6 +162,9 @@ function SignupPage() {
 						{signup.isPending ? "Criando…" : "Criar conta"}
 					</Button>
 				</form>
+
+				<AuthDivider />
+				<GoogleButton label='Cadastrar com Google' />
 
 				<p className='mt-4 text-center text-[12px] text-fg-muted'>
 					Já tem conta?{" "}

@@ -47,7 +47,7 @@ export async function loginUser(input: LoginInput) {
 		},
 	})
 
-	if (!user) {
+	if (!user?.passwordHash) {
 		throw new AuthenticationError("Invalid credentials")
 	}
 

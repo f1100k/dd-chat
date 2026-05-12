@@ -36,12 +36,14 @@ describe("POST /signup", () => {
 		})
 
 		expect(dbUser.id).toBe(user.id)
+		expect(dbUser.passwordHash).not.toBeNull()
 		expect(dbUser.passwordHash).not.toBe(body.password)
 
-		const correctPasswordMatch = await bcrypt.compare(body.password, dbUser.passwordHash)
+		const passwordHash = dbUser.passwordHash as string
+		const correctPasswordMatch = await bcrypt.compare(body.password, passwordHash)
 		expect(correctPasswordMatch).toBeTruthy()
 
-		const incorrectPasswordMatch = await bcrypt.compare("not corrected", dbUser.passwordHash)
+		const incorrectPasswordMatch = await bcrypt.compare("not corrected", passwordHash)
 		expect(incorrectPasswordMatch).toBeFalsy()
 	})
 
