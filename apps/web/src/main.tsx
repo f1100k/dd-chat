@@ -7,12 +7,15 @@ import { createRoot } from "react-dom/client"
 import { ApiError, api } from "@/lib/api"
 import { routeTree } from "@/routeTree.gen"
 import "@/styles/globals.css"
+import { createTrpc } from "@/lib/trpc"
 
 const queryClient = new QueryClient({
 	defaultOptions: {
 		queries: { staleTime: 60_000, retry: false, refetchOnWindowFocus: false },
 	},
 })
+
+const trpc = createTrpc(queryClient)
 
 async function loadMe(): Promise<UserPublic | null> {
 	return queryClient.fetchQuery({
@@ -30,7 +33,7 @@ async function loadMe(): Promise<UserPublic | null> {
 
 const router = createRouter({
 	routeTree,
-	context: { queryClient, loadMe },
+	context: { queryClient, loadMe, trpc },
 	defaultPreload: "intent",
 })
 

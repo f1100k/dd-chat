@@ -19,5 +19,11 @@
 	"devDependencies": {
 		"@dd-chat/tsconfig": "workspace:*",
 		"typescript": "catalog:"
+	},
+	"dependencies": {
+		"@dd-chat/db": "workspace:*",
+		"@dd-chat/validators": "workspace:*",
+		"@trpc/server": "^11.6.0",
+		"zod": "catalog:"
 	}
 }

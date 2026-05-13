@@ -53,6 +53,9 @@ importers:
       '@openrouter/ai-sdk-provider':
         specifier: ^1.2.4
         version: 1.5.4(ai@5.0.187(zod@4.4.3))(zod@4.4.3)
+      '@trpc/server':
+        specifier: ^11.6.0
+        version: 11.17.0(typescript@6.0.3)
       ai:
         specifier: ^5.0.0
         version: 5.0.187(zod@4.4.3)
@@ -69,6 +72,9 @@ importers:
       '@dd-chat/db':
         specifier: workspace:*
         version: link:../../packages/db
+      '@dd-chat/trpc':
+        specifier: workspace:*
+        version: link:../../packages/trpc
       '@dd-chat/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/tsconfig
@@ -93,6 +99,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@dd-chat/trpc':
+        specifier: workspace:*
+        version: link:../../packages/trpc
       '@dd-chat/validators':
         specifier: workspace:*
         version: link:../../packages/validators
@@ -105,6 +114,15 @@ importers:
       '@tanstack/react-router':
         specifier: ^1.169.2
         version: 1.169.2(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      '@trpc/client':
+        specifier: ^11.6.0
+        version: 11.17.0(@trpc/server@11.17.0(typescript@6.0.3))(typescript@6.0.3)
+      '@trpc/server':
+        specifier: ^11.6.0
+        version: 11.17.0(typescript@6.0.3)
+      '@trpc/tanstack-react-query':
+        specifier: ^11.6.0
+        version: 11.17.0(@tanstack/react-query@5.100.10(react@19.2.6))(@trpc/client@11.17.0(@trpc/server@11.17.0(typescript@6.0.3))(typescript@6.0.3))(@trpc/server@11.17.0(typescript@6.0.3))(react@19.2.6)(typescript@6.0.3)
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -212,6 +230,19 @@ importers:
         version: 3.3.11(@prisma/client@7.8.0(prisma@7.8.0(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3))(typescript@6.0.3))(prisma@7.8.0(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3))(zod@4.4.3)
 
   packages/trpc:
+    dependencies:
+      '@dd-chat/db':
+        specifier: workspace:*
+        version: link:../db
+      '@dd-chat/validators':
+        specifier: workspace:*
+        version: link:../validators
+      '@trpc/server':
+        specifier: ^11.6.0
+        version: 11.17.0(typescript@6.0.3)
+      zod:
+        specifier: 'catalog:'
+        version: 4.4.3
     devDependencies:
       '@dd-chat/tsconfig':
         specifier: workspace:*
@@ -244,6 +275,9 @@ importers:
       '@dd-chat/db':
         specifier: workspace:*
         version: link:../packages/db
+      '@dd-chat/trpc':
+        specifier: workspace:*
+        version: link:../packages/trpc
       '@dd-chat/tsconfig':
         specifier: workspace:*
         version: link:../tooling/tsconfig
@@ -253,6 +287,9 @@ importers:
       '@faker-js/faker':
         specifier: ^10.4.0
         version: 10.4.0
+      '@trpc/server':
+        specifier: ^11.6.0
+        version: 11.17.0(typescript@6.0.3)
       '@types/node':
         specifier: 'catalog:'
         version: 22.19.18
@@ -1225,6 +1262,29 @@ packages:
     resolution: {integrity: sha512-olW33+Cn+bsCsZKPwEGhlkqS6w3M2slFv11JIobdnCFKMLG97oAI2kWKdx5/zsywTL8flpnoIgaZZPlQTFYhdQ==}
     engines: {node: '>=20.19'}
     hasBin: true
+
+  '@trpc/client@11.17.0':
+    resolution: {integrity: sha512-KpJBFrbKTDeVCFv/3ckL1XBBH5Yssn8hethI/rUy7GIpTj+VzjtPjykDqJpzobuVOz+d26cXCSu1t4I6MYI5Zg==}
+    hasBin: true
+    peerDependencies:
+      '@trpc/server': 11.17.0
+      typescript: '>=5.7.2'
+
+  '@trpc/server@11.17.0':
+    resolution: {integrity: sha512-jbAOUe0PpUTCYqziyu+8vYXZdDXPudZgnEhWCQ2NjKnVEjfE93RqHTt1oycZJv/HNf51YlRXfEEwSIAbb161rw==}
+    hasBin: true
+    peerDependencies:
+      typescript: '>=5.7.2'
+
+  '@trpc/tanstack-react-query@11.17.0':
+    resolution: {integrity: sha512-OFxjvCgisP0yaCj7lgP6qPaFwJvJDgnrAUxH3cNIPPR89TpYbndn5vsdKNkc7EnvER9b6wq9Yz8aCcPcOBpDXg==}
+    hasBin: true
+    peerDependencies:
+      '@tanstack/react-query': ^5.80.3
+      '@trpc/client': 11.17.0
+      '@trpc/server': 11.17.0
+      react: '>=18.2.0'
+      typescript: '>=5.7.2'
 
   '@turbo/darwin-64@2.9.10':
     resolution: {integrity: sha512-5BVJnes8/zMPydF8ktfBBWqCCpUeWVxwZ6avYHRqLzk2PuTAsLz0TlaKdDe1nk1cz3/o0c+7CEf6zqNXdB2N7Q==}
@@ -3047,6 +3107,23 @@ snapshots:
   '@tanstack/store@0.9.3': {}
 
   '@tanstack/virtual-file-routes@1.161.7': {}
+
+  '@trpc/client@11.17.0(@trpc/server@11.17.0(typescript@6.0.3))(typescript@6.0.3)':
+    dependencies:
+      '@trpc/server': 11.17.0(typescript@6.0.3)
+      typescript: 6.0.3
+
+  '@trpc/server@11.17.0(typescript@6.0.3)':
+    dependencies:
+      typescript: 6.0.3
+
+  '@trpc/tanstack-react-query@11.17.0(@tanstack/react-query@5.100.10(react@19.2.6))(@trpc/client@11.17.0(@trpc/server@11.17.0(typescript@6.0.3))(typescript@6.0.3))(@trpc/server@11.17.0(typescript@6.0.3))(react@19.2.6)(typescript@6.0.3)':
+    dependencies:
+      '@tanstack/react-query': 5.100.10(react@19.2.6)
+      '@trpc/client': 11.17.0(@trpc/server@11.17.0(typescript@6.0.3))(typescript@6.0.3)
+      '@trpc/server': 11.17.0(typescript@6.0.3)
+      react: 19.2.6
+      typescript: 6.0.3
 
   '@turbo/darwin-64@2.9.10':
     optional: true
