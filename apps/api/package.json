@@ -5,7 +5,9 @@
 	"exports": {
 		"./app": "./src/app.ts",
 		"./auth/service": "./src/auth/service.ts",
-		"./auth/google": "./src/auth/google.ts"
+		"./auth/google": "./src/auth/google.ts",
+		"./context/intent": "./src/context/intent.ts",
+		"./context/intent-v3": "./src/context/intent-v3.ts"
 	},
 	"scripts": {
 		"dev": "tsx watch --env-file=../../.env src/index.ts",
@@ -17,10 +19,13 @@
 	"dependencies": {
 		"@hono/node-server": "^1.19.14",
 		"@hono/zod-validator": "^0.8.0",
+		"@openrouter/ai-sdk-provider": "^1.2.4",
+		"ai": "^5.0.0",
 		"hono": "^4.12.17",
 		"zod": "catalog:"
 	},
 	"devDependencies": {
+		"@dd-chat/context": "workspace:*",
 		"@dd-chat/db": "workspace:*",
 		"@dd-chat/tsconfig": "workspace:*",
 		"@dd-chat/validators": "workspace:*",

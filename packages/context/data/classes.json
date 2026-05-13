@@ -1,0 +1,60 @@
+[
+	{
+		"name": "Cleric",
+		"hitDie": 8,
+		"primaryAbility": "Wisdom",
+		"savingThrows": ["WIS", "CHA"],
+		"skillChoice": "Choose 2: History, Insight, Medicine, Persuasion, or Religion",
+		"proficiencies": [
+			"Light Armor",
+			"Medium Armor",
+			"Shields",
+			"Simple Weapons",
+			"Saving Throw: WIS",
+			"Saving Throw: CHA"
+		]
+	},
+	{
+		"name": "Fighter",
+		"hitDie": 10,
+		"primaryAbility": "Strength or Dexterity",
+		"savingThrows": ["STR", "CON"],
+		"skillChoice": "Choose 2: Acrobatics, Animal Handling, Athletics, History, Insight, Intimidation, Perception, or Survival",
+		"proficiencies": [
+			"All armor",
+			"Shields",
+			"Simple Weapons",
+			"Martial Weapons",
+			"Saving Throw: STR",
+			"Saving Throw: CON"
+		]
+	},
+	{
+		"name": "Rogue",
+		"hitDie": 8,
+		"primaryAbility": "Dexterity",
+		"savingThrows": ["DEX", "INT"],
+		"skillChoice": "Choose 4: Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, or Stealth",
+		"proficiencies": [
+			"Light Armor",
+			"Simple Weapons",
+			"Longswords",
+			"Rapiers",
+			"Scimitars",
+			"Shortswords",
+			"Whips",
+			"Hand crossbows",
+			"Tool: Thieves' Tools",
+			"Saving Throw: DEX",
+			"Saving Throw: INT"
+		]
+	},
+	{
+		"name": "Wizard",
+		"hitDie": 6,
+		"primaryAbility": "Intelligence",
+		"savingThrows": ["INT", "WIS"],
+		"skillChoice": "Choose 2: Arcana, History, Insight, Investigation, Medicine, or Religion",
+		"proficiencies": ["Simple Weapons", "Saving Throw: INT", "Saving Throw: WIS"]
+	}
+]

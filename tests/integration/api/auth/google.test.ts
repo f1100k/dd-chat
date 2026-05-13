@@ -138,7 +138,7 @@ describe("GET /auth/google/callback", () => {
 			})
 
 			expect(response.status).toBe(302)
-			expect(response.headers.get("location")).toBe("/")
+			expect(response.headers.get("location")).toBe(process.env.OAUTH_POST_LOGIN_REDIRECT ?? "/")
 
 			const setCookie = response.headers.get("set-cookie") ?? ""
 			expect(setCookie).toMatch(/session=/)

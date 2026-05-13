@@ -1,0 +1,37 @@
+[
+	{
+		"name": "Adamantine Armor",
+		"category": "Armor",
+		"rarity": "Uncommon",
+		"attunement": false,
+		"description": "Armor (Any Medium or Heavy, Except Hide Armor)  \n This suit of armor is reinforced with adamantine, one of the hardest substances in existence. While you're wearing it, any Critical Hit against you becomes a normal hit."
+	},
+	{
+		"name": "Bag of Holding",
+		"category": "Wondrous Items",
+		"rarity": "Uncommon",
+		"attunement": false,
+		"description": "Wondrous Item  \n This bag has an interior space considerably larger than its outside dimensions-roughly 2 feet square and 4 feet deep on the inside. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 5 pounds, regardless of its contents. Retrieving an item from the bag requires a Utilize action.  \n If the bag is overloaded, pierced, or torn, it is destroyed, and its contents are scattered in the Astral Plane. If the bag is turned inside out, its contents spill forth unharmed, but the bag must be put right before it can be used again. The bag holds enough air for 10 minutes of breathing, divided by the number of breathing creatures inside.  \n Placing a Bag of Holding inside an extradimensional space created by a Handy Haversack, Portable Hole, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within a 10-foot-radius Sphere centered on the gate is sucked through it to a random location on the Astral Plane. The gate then closes. The gate is one-way and can't be reopened."
+	},
+	{
+		"name": "Boots of Speed",
+		"category": "Wondrous Items",
+		"rarity": "Rare",
+		"attunement": true,
+		"description": "Wondrous Item  \n While you wear these boots, you can take a Bonus Action to click the boots' heels together. If you do, the boots double your Speed, and any creature that makes an Opportunity Attack against you has Disadvantage on the attack roll. If you click your heels together again, you end the effect.  \n When you've used the boots' property for a total of 10 minutes, the magic ceases to function for you until you finish a Long Rest."
+	},
+	{
+		"name": "Cloak of Protection",
+		"category": "Wondrous Items",
+		"rarity": "Uncommon",
+		"attunement": true,
+		"description": "Wondrous Item  \n You gain a +1 bonus to Armor Class and saving throws while you wear this cloak."
+	},
+	{
+		"name": "Potions of Healing",
+		"category": "Potions",
+		"rarity": "Rarity Varies",
+		"attunement": false,
+		"description": "Potion  \n You regain Hit Points when you drink this potion. The number of Hit Points depends on the potion's rarity, as shown in the table below.  \n Whatever its potency, the potion's red liquid glimmers when agitated.PotionHP RegainedRarityPotion of Healing2d4 + 2CommonPotion of Healing(greater)4d4 + 4UncommonPotion of Healing(superior)8d4 + 8Rarecontainer and has cloudy white impurities drifting in it."
+	}
+]

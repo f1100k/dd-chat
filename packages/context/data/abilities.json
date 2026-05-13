@@ -1,0 +1,38 @@
+[
+	{
+		"name": "Charisma",
+		"shortName": "CHA",
+		"description": "Confidence, poise, and charm",
+		"skills": ["Deception", "Intimidation", "Performance", "Persuasion"]
+	},
+	{
+		"name": "Constitution",
+		"shortName": "CON",
+		"description": "Health and stamina",
+		"skills": []
+	},
+	{
+		"name": "Dexterity",
+		"shortName": "DEX",
+		"description": "Agility, reflexes, and balance",
+		"skills": ["Acrobatics", "Sleight of Hand", "Stealth"]
+	},
+	{
+		"name": "Intelligence",
+		"shortName": "INT",
+		"description": "Reasoning and memory",
+		"skills": ["Arcana", "History", "Investigation", "Nature", "Religion"]
+	},
+	{
+		"name": "Strength",
+		"shortName": "STR",
+		"description": "Physical might",
+		"skills": ["Athletics"]
+	},
+	{
+		"name": "Wisdom",
+		"shortName": "WIS",
+		"description": "Perceptiveness and mental fortitude",
+		"skills": ["Animal Handling", "Insight", "Medicine", "Perception", "Survival"]
+	}
+]

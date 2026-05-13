@@ -16,6 +16,10 @@ export default defineConfig({
 				target: "http://localhost:3001",
 				changeOrigin: false,
 			},
+			"/context": {
+				target: "http://localhost:3001",
+				changeOrigin: false,
+			},
 		},
 	},
 })
