@@ -5,6 +5,7 @@ import { ZodError } from "zod"
 import auth from "./auth/route.js"
 import context from "./context/route.js"
 import { AppError } from "./errors.js"
+import trpc from "./trpc/route.js"
 
 function llmUpstreamResponse(err: APICallError) {
 	const upstreamStatus = err.statusCode ?? 0
@@ -51,5 +52,6 @@ app.onError((err, c) => {
 
 app.route("/auth", auth)
 app.route("/context", context)
+app.route("/trpc", trpc)
 
 export default app

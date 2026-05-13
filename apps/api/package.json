@@ -20,6 +20,7 @@
 		"@hono/node-server": "^1.19.14",
 		"@hono/zod-validator": "^0.8.0",
 		"@openrouter/ai-sdk-provider": "^1.2.4",
+		"@trpc/server": "^11.6.0",
 		"ai": "^5.0.0",
 		"hono": "^4.12.17",
 		"zod": "catalog:"
@@ -27,6 +28,7 @@
 	"devDependencies": {
 		"@dd-chat/context": "workspace:*",
 		"@dd-chat/db": "workspace:*",
+		"@dd-chat/trpc": "workspace:*",
 		"@dd-chat/tsconfig": "workspace:*",
 		"@dd-chat/validators": "workspace:*",
 		"@types/bcrypt": "^6.0.0",

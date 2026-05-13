@@ -34,7 +34,12 @@ export function useLogin() {
 	const qc = useQueryClient()
 	return useMutation({
 		mutationFn: (input: LoginInput) => api.post<UserPublic>("/auth/login", input),
-		onSuccess: (user) => qc.setQueryData(ME_KEY, user),
+		onSuccess: (user) => {
+			// Clear before set: garante que queries cacheadas de outro user/sessão
+			// não vazem pro novo login.
+			qc.clear()
+			qc.setQueryData(ME_KEY, user)
+		},
 	})
 }
 
@@ -48,7 +53,10 @@ export function useSignup() {
 				password: input.password,
 			})
 		},
-		onSuccess: (user) => qc.setQueryData(ME_KEY, user),
+		onSuccess: (user) => {
+			qc.clear()
+			qc.setQueryData(ME_KEY, user)
+		},
 	})
 }
 
@@ -56,6 +64,10 @@ export function useLogout() {
 	const qc = useQueryClient()
 	return useMutation({
 		mutationFn: () => api.post<void>("/auth/logout", {}),
+		// NÃO limpa o cache aqui — fazer `qc.clear()` antes do navigate causa
+		// flicker porque os useQuery hooks ainda montados (sidebar, página /c/$id)
+		// re-renderizam sem dados. O `useLogin.onSuccess` já faz `qc.clear()` antes
+		// de setar o novo user, então o cache stale não vaza entre sessões.
 		onSuccess: () => qc.setQueryData(ME_KEY, null),
 	})
 }
