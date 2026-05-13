@@ -19,5 +19,8 @@
 	"devDependencies": {
 		"@dd-chat/tsconfig": "workspace:*",
 		"typescript": "catalog:"
+	},
+	"dependencies": {
+		"zod": "catalog:"
 	}
 }

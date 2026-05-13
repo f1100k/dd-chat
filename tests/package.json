@@ -11,6 +11,7 @@
 	},
 	"devDependencies": {
 		"@dd-chat/api": "workspace:*",
+		"@dd-chat/context": "workspace:*",
 		"@dd-chat/db": "workspace:*",
 		"@dd-chat/tsconfig": "workspace:*",
 		"@dd-chat/validators": "workspace:*",

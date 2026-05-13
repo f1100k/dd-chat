@@ -1,5 +1,5 @@
-import { createFileRoute, useRouter } from "@tanstack/react-router"
-import { LogOut } from "lucide-react"
+import { createFileRoute, Link, useRouter } from "@tanstack/react-router"
+import { LogOut, Sparkles } from "lucide-react"
 
 import { BrandMark } from "@/components/brand-mark"
 import { Button } from "@/components/ui/button"
@@ -40,6 +40,13 @@ function HomePage() {
 					<p className='mt-2 text-[14px] text-fg-muted leading-[1.55]'>
 						Você está autenticado. As telas de conversa entram nos milestones 7 e 8 do roadmap.
 					</p>
+					<Link
+						to='/debug-context'
+						className='mt-5 inline-flex items-center gap-1.5 text-[13px] text-accent hover:underline'
+					>
+						<Sparkles size={14} />
+						Debug: builder de contexto
+					</Link>
 				</div>
 			</main>
 		</div>
